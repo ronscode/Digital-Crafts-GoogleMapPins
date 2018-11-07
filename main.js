@@ -63,11 +63,7 @@
 
 
 
-
-
-// My code below commented out, trying to rebuild above this comment and figure out why it isn't working 
-
-// Below is the Gmaps Code from the examples to edit: 
+// 
 var markerCluster;
 var map;
 var marker;
@@ -79,11 +75,12 @@ function initMap() {
    
     map = new google.maps.Map(document.getElementById('map'), {
       zoom: 6,
-      center: southEast
+      center: southEast,
+      mapTypeId: google.maps.MapTypeId.SATELLITE
     });
 
     // Create an array of alphabetical characters used to label the markers.
-    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var labels = [ "Montgomery AL", "Tallahassee FL", "Atlanta GA", "Frankfort KY", "Jackson MS", "Raleigh NC", "Columbia SC", "Nashville TN", "Annanpolis MD", "Baton Rouge LA", "Charleston WV", "Little Rock AK"];
 
     // Add some markers to the map.
     // Note: The code uses the JavaScript Array.prototype.map() method to
@@ -92,6 +89,7 @@ function initMap() {
     markers = locations.map(function(location, i) {
       return new google.maps.Marker({
         position: location,
+        animation: google.maps.Animation.BOUNCE,
         label: labels[i % labels.length]
       });
     });
@@ -113,20 +111,10 @@ function initMap() {
     {lat: 34.002, lng: -81.029},
     {lat: 36.164, lng: -86.812},
     {lat: 38.978, lng: -76.497},
-    {lat: -37.750000, lng: 145.116667},
-    {lat: -37.759859, lng: 145.128708},
-    {lat: -37.765015, lng: 145.133858},
-    {lat: -37.770104, lng: 145.143299},
-    {lat: -37.773700, lng: 145.145187},
-    {lat: -37.774785, lng: 145.137978},
-    {lat: -37.819616, lng: 144.968119},
-    {lat: -38.330766, lng: 144.695692},
-    {lat: -39.927193, lng: 175.053218},
-    {lat: -41.330162, lng: 174.865694},
-    {lat: -42.734358, lng: 147.439506},
-    {lat: -42.734358, lng: 147.501315},
-    {lat: -42.735258, lng: 147.438000},
-    {lat: -43.999792, lng: 170.463352}
+    {lat: 37.540, lng: -77.441},
+    {lat: 38.344, lng: -81.609},
+    {lat: 34.746, lng: -92.291},
+  
   ]
 
   function setMapOnAll(map) {
@@ -145,7 +133,6 @@ setMapOnAll(map);
 
 
 function deleteMarkers() {
-clearMarkers();
-markers = [];
+
 }
 
