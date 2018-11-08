@@ -79,6 +79,34 @@ function initMap() {
       mapTypeId: google.maps.MapTypeId.SATELLITE
     });
 
+      // Define the LatLng coordinates for the polygon.
+  var seCoords = [
+    {lat: 32.378, lng: -86.318},
+    {lat: 30.442, lng: -84.288},
+    {lat: 33.751, lng: -84.387},
+    {lat: 38.201, lng: -84.874},
+    {lat: 32.299, lng: -90.185},
+    {lat: 35.780, lng: -78.639},
+    {lat: 34.002, lng: -81.029},
+    {lat: 36.164, lng: -86.812},
+    {lat: 38.978, lng: -76.497},
+    {lat: 37.540, lng: -77.441},
+    {lat: 38.344, lng: -81.609},
+    {lat: 34.746, lng: -92.291},
+ 
+];
+
+// Construct the polygon.
+var seTriangle = new google.maps.Polygon({
+  paths: seCoords,
+  strokeColor: 'purple',
+  strokeOpacity: 0.8,
+  strokeWeight: 3,
+  fillColor: '#FF0000',
+  fillOpacity: 0.35
+});
+seTriangle.setMap(map);
+
     // Create an array of alphabetical characters used to label the markers.
     var labels = [ "Montgomery AL", "Tallahassee FL", "Atlanta GA", "Frankfort KY", "Jackson MS", "Raleigh NC", "Columbia SC", "Nashville TN", "Annanpolis MD", "Baton Rouge LA", "Charleston WV", "Little Rock AK"];
 
@@ -135,4 +163,7 @@ setMapOnAll(map);
 function deleteMarkers() {
 
 }
+
+
+
 
